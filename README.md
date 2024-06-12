@@ -15,12 +15,13 @@ The repository is structured as follows:
 ├── AssignmentFilter.py
 ├── BanFilter.py
 ├── HITOrganizer.py
-├── Main.py
-├── Notebook_main.ipynb
 ├── README.md
 ├── dataset
 │   ├── PersonalSum_original.csv
 │   └── Topic_centric_PersonalSum.csv
+├── main.ipynb
+├── mturk_helpers.py
+├── old_main_with_definitions.ipynb
 └── requirements.txt
 ```
 
@@ -29,8 +30,9 @@ The repository is structured as follows:
 - `AssignmentFilter.py`: Contains the `AssignmentFilter` class used to filter assignments based on various quality metrics.
 - `BanFilter.py`: Contains the `BanFilter` class used to identify workers who consistently submit low-quality work.
 - `HITOrganizer.py`: Contains the `HITOrganizer` class used to organize HIT (Human Intelligence Task) files and move them based on approval status.
-- `Main.py`: The main script that ties together the functionalities of other scripts to filter, approve, reject, and organize assignments.
-- `Notebook_main.ipynb`: A Jupyter Notebook that provides the same functionalities as `Main.py` for interactive use.
+- `main.ipynb`: A Jupyter Notebook that ties together the functionalities of other scripts to filter, approve, reject, and organize assignments in an interactive format.
+- `mturk_helpers.py`: Contains helper functions used to manage MTurk HITs, such as creating HITs, processing directories, and handling qualifications.
+- `old_main_with_definitions.ipynb`: An older version of the main notebook with all function definitions included.
 - `README.md`: This file.
 - `dataset/`: Directory containing the original and topic-centric datasets.
   - `PersonalSum_original.csv`: The original dataset.
@@ -117,24 +119,47 @@ assignment_id = 'your_assignment_id'
 hit_organizer.organize_file(assignment_id, approve=True)
 ```
 
-### Main Script
+### MTurk Helpers
 
-The `Main.py` script integrates all functionalities to process and organize assignments.
+The `mturk_helpers.py` file contains various functions to handle MTurk HITs. Import the required functions in your script or notebook as needed.
 
 Example usage:
 
-```sh
-python Main.py
+```python
+from mturk_helpers import *
+
+# Initialize MTurk client
+load_dotenv()  # This loads the environment variables from .env
+aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID')
+aws_secret_access_key = os.environ.get('AWS_SECRET_ACCESS_KEY')
+region_name = 'us-east-1'
+endpoint_url = 'https://mturk-requester.us-east-1.amazonaws.com'
+
+mturk = boto3.client(
+    'mturk',
+    endpoint_url=endpoint_url,
+    region_name=region_name,
+    aws_access_key_id=aws_access_key_id,
+    aws_secret_access_key=aws_secret_access_key,
+)
+
+# Print account balance
+print(mturk.get_account_balance()['AvailableBalance'])
+
+# Example to process directory in chunks
+input_directory = 'path/to/your/input_directory'
+output_directory = 'path/to/your/output_directory'
+process_directory_in_chunks(input_directory, output_directory)
 ```
 
-### Notebook
+### Jupyter Notebook
 
-The `Notebook_main.ipynb` provides the same functionalities as `Main.py` but in an interactive Jupyter Notebook format. You can run and modify the notebook cells to process the assignments step by step.
+The `main.ipynb` provides the same functionalities as the scripts but in an interactive Jupyter Notebook format. You can run and modify the notebook cells to process the assignments step by step.
 
 To open the notebook, run:
 
 ```sh
-jupyter notebook Notebook_main.ipynb
+jupyter notebook main.ipynb
 ```
 
 ## Datasets
@@ -144,13 +169,9 @@ The `dataset` directory contains two CSV files:
 - `PersonalSum_original.csv`: The original dataset with personalized summaries.
 - `Topic_centric_PersonalSum.csv`: The dataset organized around specific topics.
 
-## Contributing
-
-Contributions are welcome! Please create a pull request with a detailed description of your changes.
-
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
+This project is licensed under the [LICENCE]. See the `LICENSE` file for more details.
 
 ## Contact
 
