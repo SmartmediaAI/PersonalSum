@@ -1,0 +1,7 @@
+boto3
+python-dotenv
+chardet
+xmltodict
+pandas
+concurrent
+threading
