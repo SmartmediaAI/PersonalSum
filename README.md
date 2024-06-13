@@ -169,9 +169,41 @@ The `dataset` directory contains two CSV files:
 - `PersonalSum_original.csv`: The original dataset with personalized summaries.
 - `Topic_centric_PersonalSum.csv`: The dataset organized around specific topics.
 
+The ddataset is designed to support research in the domain of personalized textual summarization. It offers high quality, manually annotated news summaries that reflect individual users preferences and focuses. The dataset is constructed to facilitate the development of personalized summarization models, filling the gap in existing research, which often relies on generic summaries or pseudo datasets. PersonalSum allows for the exploration of how personal interests and preferences can be incorporated into summarization tasks.
+
+## Functions of the Dataset
+
+1. **Personalized Summarization**: Facilitates the creation of summaries that align with individual user preferences by incorporating user profiles and personalized annotations.
+2. **Generic Summarization**: Includes machine generated summaries for comparative analysis with personalized summaries.
+
+## Dataset Structure
+
+The dataset consists of two primary CSV files, each serving distinct purposes:
+
+1. **PersonalSum_original.csv**: The original dataset with personalized summaries created by human annotators reflecting their personal interests and preferences. This file also includes user profiles and the source sentences from the articles.
+2. **Topic_centric_PersonalSum.csv**: The dataset organized around specific topics, allowing for focused analysis and comparison across different thematic areas. The data in this file is almost identical to PersonalSum_original.csv, with the key difference being that each assignment had the same topic. This structure aims to investigate the correlation between the quality of summaries and the users topic preferences.
+
+### Difference Between the Two CSV Files
+
+- **PersonalSum_original.csv**: 
+  - Contains human annotated summaries that reflect individual user preferences.
+
+- **Topic_centric_PersonalSum.csv**: 
+  - Organizes summaries around specific topics.
+  - Facilitates analysis and comparison of summaries within specific thematic areas.
+  - The data collection was performed after PersonalSum_original.csv, with each assignment focused on the same topic to examine the potential correlation between summary quality and users topic preferences.
+
+## Main Attributes of the Dataset
+
+- **User Profiles**: Each annotator is assigned a unique WorkerID, which identifies the individual performing the annotation. This allows tracking of annotations by the same person across different tasks.
+- **AssignmentID**: Represents a specific annotation task. Each annotator summarizes three different news articles under the same AssignmentID, indicating that they were part of the same annotation session.
+- **Duration**: Indicates the total time taken by each worker to complete an annotation assignment. The duration is the combined time used for finishing the annotations of three news articles.
+- **Summaries**: Both generic and personalized summaries with corresponding source sentences from news articles are provided.
+- **Question Answer Sets**: Three question and answer pairs related to each article are included, correlating directly to the content of the articles.
+
 ## License
 
-This project is licensed under the [LICENCE]. See the `LICENSE` file for more details.
+This dataset is made available under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license. You are free to share and adapt the material for non-commercial purposes as long as appropriate credit is given, and any changes made are indicated.
 
 ## Contact
 
