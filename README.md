@@ -169,7 +169,7 @@ The `dataset` directory contains two CSV files:
 - `PersonalSum_original.csv`: The original dataset with personalized summaries.
 - `Topic_centric_PersonalSum.csv`: The dataset organized around specific topics.
 
-The ddataset is designed to support research in the domain of personalized textual summarization. It offers high quality, manually annotated news summaries that reflect individual users preferences and focuses. The dataset is constructed to facilitate the development of personalized summarization models, filling the gap in existing research, which often relies on generic summaries or pseudo datasets. PersonalSum allows for the exploration of how personal interests and preferences can be incorporated into summarization tasks.
+The dataset is designed to support research in the domain of personalized textual summarization. It offers high quality, manually annotated news summaries that reflect individual users preferences and focuses. The dataset is constructed to facilitate the development of personalized summarization models, filling the gap in existing research, which often relies on generic summaries or pseudo datasets. PersonalSum allows for the exploration of how personal interests and preferences can be incorporated into summarization tasks.
 
 ## Functions of the Dataset
 
