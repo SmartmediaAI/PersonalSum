@@ -20,6 +20,7 @@ The repository is structured as follows:
 │   ├── PersonalSum_original.csv
 │   └── Topic_centric_PersonalSum.csv
 ├── main.ipynb
+├── RetriveAndLoadData.py
 ├── mturk_helpers.py
 ├── old_main_with_definitions.ipynb
 └── requirements.txt
@@ -31,6 +32,7 @@ The repository is structured as follows:
 - `BanFilter.py`: Contains the `BanFilter` class used to identify workers who consistently submit low-quality work.
 - `HITOrganizer.py`: Contains the `HITOrganizer` class used to organize HIT (Human Intelligence Task) files and move them based on approval status.
 - `main.ipynb`: A Jupyter Notebook that ties together the functionalities of other scripts to filter, approve, reject, and organize assignments in an interactive format.
+- `RetriveAndLoadData.py`: Scripts to convert the CSV data into corectly formated txt files. The script was slightly altered to fit into this repository, and relies on the user to give the path to the CSV data and a folder for storage. Our data is stripped and cleaned, but we kept the "Remove Emojis" function.
 - `mturk_helpers.py`: Contains helper functions used to manage MTurk HITs, such as creating HITs, processing directories, and handling qualifications.
 - `old_main_with_definitions.ipynb`: An older version of the main notebook with all function definitions included.
 - `README.md`: This file.
