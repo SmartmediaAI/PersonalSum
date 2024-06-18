@@ -209,4 +209,4 @@ This dataset is made available under the Creative Commons Attribution-NonCommerc
 
 ## Contact
 
-For any questions or issues, please contact [your_email@example.com].
+For any questions or issues, please contact [lemei.zhang@ntnu.no](lemei.zhang@ntnu.no) or [peng.liu@ntnu.no](peng.liu@ntnu.no).
