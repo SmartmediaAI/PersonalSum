@@ -203,6 +203,10 @@ The dataset consists of two primary CSV files, each serving distinct purposes:
 - **Summaries**: Both generic and personalized summaries with corresponding source sentences from news articles are provided.
 - **Question Answer Sets**: Three question and answer pairs related to each article are included, correlating directly to the content of the articles.
 
+## Huggingface Link to the Dataset
+
+[Huggingface PersonalSum](https://huggingface.co/datasets/PersonalLab/PersonalSum)
+
 ## License
 
 This dataset is made available under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license. You are free to share and adapt the material for non-commercial purposes as long as appropriate credit is given, and any changes made are indicated.
